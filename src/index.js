@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Auth0Provider
+        domain="dev-8lc0lqo1pnfawv1t.us.auth0.com"
+        clientId="br6ZL3rlVxhzYVzaWJcJSeiFZ6JrBXmJ"
+        authorizationParams={{
+          redirect_uri: "http://localhost:3000/ModuleSelection"
+        }}
+      >
+        <App />
+      </Auth0Provider>
+
+    </BrowserRouter>
   </React.StrictMode>
 );
 
